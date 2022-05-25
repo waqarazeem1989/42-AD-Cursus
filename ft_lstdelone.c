@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waqar <moazeem@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 10:06:51 by waqar             #+#    #+#             */
-/*   Updated: 2022/05/14 10:27:28 by waqar            ###   ########.fr       */
+/*   Created: 2022/05/25 18:27:36 by waqar             #+#    #+#             */
+/*   Updated: 2022/05/25 18:27:45 by waqar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** LIBRARY: <string.h>
-** SYNOPSIS: write a byte to a byte string
+** LIBRARY: N/A
+** SYNOPSIS: delete element from list
 **
 ** DESCRIPTION:
-** 		The memset() function writes n bytes of value c (converted to an
-**	unsigned char) to the string s.
+** 		Takes as a parameter an element and frees the memory of the element’s
+**	content using the function ’del’ given as a parameter and free the element.
+**	The memory of ’next’ must not be freed.
 */
 
 #include "libft.h"
 
-void *ft_memset(void *b, int c, size_t len)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	size_t i;
-
-	i=0;
-
-	while(i < len)
-	{
-		((unsigned char *)b)[i] = c; // typecast to convert b to unsgined char
-		i++;
-	}
-	return(b);
+	if (!lst)
+		return ;
+	del(lst->content);
+	free(lst);
 }

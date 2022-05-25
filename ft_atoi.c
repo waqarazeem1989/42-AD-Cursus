@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//appinha
+// convert ASCII string to integer.
+
 #include "libft.h"
 
 int		ft_atoi(const char *str)

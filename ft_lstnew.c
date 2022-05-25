@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waqar <moazeem@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 10:06:51 by waqar             #+#    #+#             */
-/*   Updated: 2022/05/14 10:27:28 by waqar            ###   ########.fr       */
+/*   Created: 2022/05/25 18:24:21 by waqar             #+#    #+#             */
+/*   Updated: 2022/05/25 18:24:38 by waqar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** LIBRARY: <string.h>
-** SYNOPSIS: write a byte to a byte string
+** LIBRARY: N/A
+** SYNOPSIS: create new list
 **
 ** DESCRIPTION:
-** 		The memset() function writes n bytes of value c (converted to an
-**	unsigned char) to the string s.
+** 		Allocates (with malloc(3)) and returns a new element. The variable
+**	’content’ is initialized with the value of the parameter ’content’. The
+**	variable ’next’ is initialized to NULL.
 */
 
 #include "libft.h"
 
-void *ft_memset(void *b, int c, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	size_t i;
+	t_list *new;
 
-	i=0;
-
-	while(i < len)
-	{
-		((unsigned char *)b)[i] = c; // typecast to convert b to unsgined char
-		i++;
-	}
-	return(b);
+	if (!(new = (t_list *)malloc(sizeof(t_list))))
+		return (0);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

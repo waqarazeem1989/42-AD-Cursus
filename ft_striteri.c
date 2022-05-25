@@ -10,19 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** Same thing as striter except we're also passing
+** the index to the function this time
+*/
+
 #include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int	i;
+	unsigned int	i;
 
+	if (!s || !f)
+		return ;
 	i = 0;
-	if (s != NULL && f != NULL)
+	while (s[i])
 	{
-		while (s[i] != '\0')
-		{
-			f(i, &s[i]);
-			i++;
-		}
+		f(i, s + i);
+		i++;
 	}
 }

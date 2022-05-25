@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   strrchr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waqar <moazeem@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 10:06:51 by waqar             #+#    #+#             */
-/*   Updated: 2022/05/14 10:27:28 by waqar            ###   ########.fr       */
+/*   Created: 2022/04/06 17:36:53 by waqar             #+#    #+#             */
+/*   Updated: 2022/05/08 14:26:50 by waqar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** LIBRARY: <string.h>
-** SYNOPSIS: write a byte to a byte string
+** SYNOPSIS: locate character in string (last occurence)
 **
 ** DESCRIPTION:
-** 		The memset() function writes n bytes of value c (converted to an
-**	unsigned char) to the string s.
+** 		The strrchr() function locates the last occurrence of c (converted to a
+**	char) in the string s.  If c is `\0', strrchr() locates the terminating
+**	`\0'.
 */
 
 #include "libft.h"
 
-void *ft_memset(void *b, int c, size_t len)
+// locate character in string (last occurence).
+
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t i;
+	int		i;
 
-	i=0;
-
-	while(i < len)
+	i = ft_strlen(s) + 1;
+	while (i--)
 	{
-		((unsigned char *)b)[i] = c; // typecast to convert b to unsgined char
-		i++;
+		if (s[i] == (char)c)
+		{
+			return ((char *)&s[i]);
+		}
 	}
-	return(b);
+	return (NULL);
 }
+
+ //return must be a pointer to address of last occurance

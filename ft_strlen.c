@@ -1,8 +1,4 @@
-
-int main()
-{
-	char test[]="waqar azeem";
-	printf("string length is = %")/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
@@ -13,6 +9,14 @@ int main()
 /*   Updated: 2022/04/02 11:04:13 by waqar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** LIBRARY: <string.h>
+** SYNOPSIS: find length of string
+**
+** DESCRIPTION:
+** 		The strlen() function computes the length of the string s.
+*/
 
 #include "libft.h"
 

@@ -10,11 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
-** ft_putnbr_fd - Outputs the integer 'n' to the given file descriptor.
+** LIBRARY: N/A
+** SYNOPSIS: output integer to given file
+**
+** DESCRIPTION:
+** 		Outputs the integer ’n’ to the given file descriptor.
 */
+
+#include "libft.h"
 
 void		ft_putnbr_fd(int n, int fd)
 {

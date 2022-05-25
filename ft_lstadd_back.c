@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waqar <moazeem@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 10:06:51 by waqar             #+#    #+#             */
-/*   Updated: 2022/05/14 10:27:28 by waqar            ###   ########.fr       */
+/*   Created: 2022/05/25 18:26:34 by waqar             #+#    #+#             */
+/*   Updated: 2022/05/25 18:26:49 by waqar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** LIBRARY: <string.h>
-** SYNOPSIS: write a byte to a byte string
-**
-** DESCRIPTION:
-** 		The memset() function writes n bytes of value c (converted to an
-**	unsigned char) to the string s.
+** Adds the element ’new’ at the end of the list.
 */
 
 #include "libft.h"
 
-void *ft_memset(void *b, int c, size_t len)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t i;
+	t_list		*tmp;
 
-	i=0;
-
-	while(i < len)
+	if (!lst)
+		return ;
+	if (*lst)
 	{
-		((unsigned char *)b)[i] = c; // typecast to convert b to unsgined char
-		i++;
+		tmp = *lst;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
 	}
-	return(b);
+	else
+		*lst = new;
 }

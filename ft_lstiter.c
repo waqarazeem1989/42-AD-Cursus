@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waqar <moazeem@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 10:06:51 by waqar             #+#    #+#             */
-/*   Updated: 2022/05/14 10:27:28 by waqar            ###   ########.fr       */
+/*   Created: 2022/05/25 18:28:46 by waqar             #+#    #+#             */
+/*   Updated: 2022/05/25 18:28:58 by waqar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** LIBRARY: <string.h>
-** SYNOPSIS: write a byte to a byte string
+** LIBRARY: N/A
+** SYNOPSIS: apply function to content of all list's elements
 **
 ** DESCRIPTION:
-** 		The memset() function writes n bytes of value c (converted to an
-**	unsigned char) to the string s.
+** 		Iterates the list ’lst’ and applies the function ’f’ to the content of
+**	each element.
 */
 
 #include "libft.h"
 
-void *ft_memset(void *b, int c, size_t len)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t i;
-
-	i=0;
-
-	while(i < len)
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		((unsigned char *)b)[i] = c; // typecast to convert b to unsgined char
-		i++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	return(b);
 }

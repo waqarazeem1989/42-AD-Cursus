@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waqar <moazeem@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 10:06:51 by waqar             #+#    #+#             */
-/*   Updated: 2022/05/14 10:27:28 by waqar            ###   ########.fr       */
+/*   Created: 2022/05/25 18:24:54 by waqar             #+#    #+#             */
+/*   Updated: 2022/05/25 18:25:14 by waqar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** LIBRARY: <string.h>
-** SYNOPSIS: write a byte to a byte string
+** LIBRARY: N/A
+** SYNOPSIS: count elements of a list
 **
 ** DESCRIPTION:
-** 		The memset() function writes n bytes of value c (converted to an
-**	unsigned char) to the string s.
+** 		Counts the number of elements in a list.
 */
 
 #include "libft.h"
 
-void *ft_memset(void *b, int c, size_t len)
+int				ft_lstsize(t_list *lst)
 {
-	size_t i;
+	int count;
 
-	i=0;
-
-	while(i < len)
+	count = 0;
+	while (lst)
 	{
-		((unsigned char *)b)[i] = c; // typecast to convert b to unsgined char
-		i++;
+		lst = lst->next;
+		count++;
 	}
-	return(b);
+	return (count);
 }

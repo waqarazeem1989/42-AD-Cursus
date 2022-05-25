@@ -10,9 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** LIBRARY: N/A
+** SYNOPSIS: output string to given file
+**
+** DESCRIPTION:
+** 		Outputs the string ’s’ to the given file descriptor.
+*/
+
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	int i;
 
