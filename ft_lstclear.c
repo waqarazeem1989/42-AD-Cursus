@@ -28,10 +28,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		return ;
 	while (*lst)
 	{
-		del((*lst)->content);
-		old_elem = *lst;
-		*lst = old_elem->next;
-		free(old_elem);
+		del((*lst)->content); // del value strored on content element of *lst
+		old_elem = *lst; // copy address of *lst to old_elem
+		*lst = old_elem->next; // move to next node in the list
+		free(old_elem); // free the memory assigned to old_elem
 	}
 	*lst = NULL;
 }

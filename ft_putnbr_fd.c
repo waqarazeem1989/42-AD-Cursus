@@ -27,8 +27,8 @@ void		ft_putnbr_fd(int n, int fd)
 	nbr = n;
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
-		nbr = -n;
+		ft_putchar_fd('-', fd); // put '-' char in fd 
+		nbr = -n; // make the number postive 
 	}
 	if (nbr >= 10)
 		ft_putnbr_fd(nbr / 10, fd);

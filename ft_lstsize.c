@@ -27,7 +27,7 @@ int				ft_lstsize(t_list *lst)
 	count = 0;
 	while (lst)
 	{
-		lst = lst->next;
+		lst = lst->next; // expression to move to the next value in list
 		count++;
 	}
 	return (count);

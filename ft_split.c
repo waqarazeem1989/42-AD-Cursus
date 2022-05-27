@@ -32,14 +32,14 @@ static int	count_words(const char *str, char c)
 	trigger = 0;
 	while (*str)
 	{
-		if (*str != c && trigger == 0)
+		if (*str != c && trigger == 0) // IF delimiter not found THEN set trigger to 1 AND start word counter 
 		{
 			trigger = 1;
 			i++;
 		}
-		else if (*str == c)
+		else if (*str == c) // IF delimiter found THEN set trigger to 0
 			trigger = 0;
-		str++;
+		str++; // IF delimiter not found AND trigger is 1 THEN move to next char in string 
 	}
 	return (i);
 }

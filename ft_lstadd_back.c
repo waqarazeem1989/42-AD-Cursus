@@ -30,5 +30,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		tmp->next = new;
 	}
 	else
-		*lst = new;
+		*lst = new; // if lst is NULL THEN assign new to first value in list
 }
