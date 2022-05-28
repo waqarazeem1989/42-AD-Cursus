@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 /*
 ** LIBRARY: <string.h>
 ** SYNOPSIS: copy byte string
@@ -23,16 +22,15 @@
 
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t i;
+	size_t	i;
 
-	if (!dst && !!src) // should it be || or &&
+	if (!dst && !src)
 	{
-		return(0);
+		return (0);
 	}
 	i = 0;
-	
 	if ((size_t)dst - (size_t)src < len)
 	{
 		i = len - 1;
@@ -42,13 +40,12 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 			i--;
 		}
 	}
-
-	else 
+	else
 	{
-		while(i < len)
+		while (i < len)
 		{
-			((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
-			i++;	
+			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+			i++;
 		}
 	}
 	return (dst);

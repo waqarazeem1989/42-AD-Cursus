@@ -34,23 +34,22 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
-	
-	i=ft_strlen(src);
+	size_t	i;
 
+	i = ft_strlen(src);
 	if (!dst || !src)
 	{
 		return (0);
 	}
 	if (dstsize == 0)
 	{
-		return(i);
+		return (i);
 	}
 	while (*src && dstsize > 1)
 	{
-		*dst++=*src++;
+		*dst++ = *src++;
 		dstsize--;
 	}
 	*dst = '\0';
-return(i);
+	return (i);
 }

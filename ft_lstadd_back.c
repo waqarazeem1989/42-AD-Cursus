@@ -18,17 +18,17 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list		*tmp;
+	t_list	*tmp;
 
 	if (!lst)
 		return ;
 	if (*lst)
 	{
 		tmp = *lst;
-		while (tmp->next)
-			tmp = tmp->next;
+		while (tmp -> next)
+			tmp = tmp -> next;
 		tmp->next = new;
 	}
 	else
-		*lst = new; // if lst is NULL THEN assign new to first value in list
+		*lst = new;
 }

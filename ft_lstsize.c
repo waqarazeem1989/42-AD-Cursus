@@ -20,14 +20,14 @@
 
 #include "libft.h"
 
-int				ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (lst)
 	{
-		lst = lst->next; // expression to move to the next value in list
+		lst = lst->next;
 		count++;
 	}
 	return (count);

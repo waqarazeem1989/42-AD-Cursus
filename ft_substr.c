@@ -26,7 +26,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*new_str;
 	size_t	j;
 
-	if (!s || !(new_str = (char *)malloc(len + 1)))
+	if (!s)
+		return (0);
+	if ((size_t)ft_strlen(s) > len)
+	{
+		new_str = (char *)malloc(len + 1);
+	}
+	else
+	{
+		new_str = (char *)malloc(ft_strlen(s) + 1);
+	}
+	if (!new_str)
 		return (0);
 	j = 0;
 	while (start < ft_strlen(s) && j < len)
@@ -34,3 +44,30 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	new_str[j] = '\0';
 	return (new_str);
 }
+
+// #include "libft.h"
+
+// char	*ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	size_t	i;
+// 	char	*ptr;
+
+// 	i = 0;
+// 	if (!s)
+// 		return (0);
+// 	if (len > ft_strlen(s))
+// 		len = ft_strlen(s) - start;
+// 	if (start >= ft_strlen(s))
+// 		return (ft_strdup(""));
+// 	ptr = (char *)malloc(sizeof(char) * (len + 1));
+// 	if (!ptr)
+// 		return (NULL);
+// 	while (i < len)
+// 	{
+// 		ptr[i] = s[start];
+// 		i++;
+// 		start++;
+// 	}
+// 	ptr[i] = '\0';
+// 	return (ptr);
+// }

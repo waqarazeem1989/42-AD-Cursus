@@ -25,21 +25,21 @@
 
 static int	count_words(const char *str, char c)
 {
-	int i;
-	int trigger;
+	int	i;
+	int	trigger;
 
 	i = 0;
 	trigger = 0;
 	while (*str)
 	{
-		if (*str != c && trigger == 0) // IF delimiter not found THEN set trigger to 1 AND start word counter 
+		if (*str != c && trigger == 0)
 		{
 			trigger = 1;
 			i++;
 		}
-		else if (*str == c) // IF delimiter found THEN set trigger to 0
+		else if (*str == c)
 			trigger = 0;
-		str++; // IF delimiter not found AND trigger is 1 THEN move to next char in string 
+		str++;
 	}
 	return (i);
 }
@@ -57,19 +57,22 @@ static char	*word_dup(const char *str, int start, int finish)
 	return (word);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
 	int		index;
 	char	**split;
 
-	if (!s || !(split = malloc((count_words(s, c) + 1) * sizeof(char *))))
-		return (0);
-	i = 0;
+	i = -1;
 	j = 0;
 	index = -1;
-	while (i <= ft_strlen(s))
+	if (!s)
+		return (0);
+	split = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!split)
+		return (0);
+	while (++i <= ft_strlen(s))
 	{
 		if (s[i] != c && index < 0)
 			index = i;
@@ -78,7 +81,6 @@ char		**ft_split(char const *s, char c)
 			split[j++] = word_dup(s, index, i);
 			index = -1;
 		}
-		i++;
 	}
 	split[j] = 0;
 	return (split);

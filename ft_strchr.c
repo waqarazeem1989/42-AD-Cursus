@@ -25,11 +25,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != c)
+	char	*a;
+
+	a = (char *) s;
+	while (*a != (unsigned char) c)
 	{
-		if (*s == '\0')
+		if (!*a)
 			return (0);
-		s++;
+		a++;
 	}
-	return (char *)s;
+	return (a);
 }

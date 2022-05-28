@@ -13,7 +13,6 @@
 /*
 ** convert integer to ASCII string
 */
-
 #include "libft.h"
 
 static int	num_len(int num)
@@ -40,9 +39,13 @@ char	*ft_itoa(int num)
 	long int	numb;
 
 	numb = num;
-	len = num_len(num);
-
-	s = (char *)malloc(sizeof(char) * (len + 1));
+	len = num_len (num);
+	if (len == 0 && num == 0)
+	{
+		s = (char *)malloc(sizeof(char) * (1));
+	}
+	else
+		s = (char *)malloc(sizeof(char) * (len + 1));
 	if (!s)
 		return (0);
 	i = len;

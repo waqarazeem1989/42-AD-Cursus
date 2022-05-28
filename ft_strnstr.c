@@ -25,8 +25,8 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t h;
-	size_t n;
+	size_t	h;
+	size_t	n;
 
 	h = 0;
 	if (needle[0] == '\0')

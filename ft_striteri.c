@@ -30,7 +30,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	i = 0;
 	while (s[i])
 	{
-		f(i, &s[i]); // &s[i] or (s+i) is same
+		f(i, &s[i]);
 		i++;
 	}
 }

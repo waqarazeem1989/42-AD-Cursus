@@ -25,15 +25,14 @@
 char	*ft_strdup(const char *s)
 {
 	size_t	slen;
-	size_t i;
+	size_t	i;
 	char	*result;
 
 	i = 0;
-
 	slen = ft_strlen(s);
-	if (!(result = (char *)malloc(sizeof(char) * (slen + 1))))
+	result = (char *)malloc(sizeof(char) * (slen + 1));
+	if (!result)
 		return (0);
-
 	while (s [i] != '\0')
 	{
 		result[i] = s[i];

@@ -23,12 +23,15 @@
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	void *result;
+	void	*ptr;
 
-	if (!(result = malloc(nmemb * size)))
-		return (0);
-	ft_bzero(result, nmemb * size);
-	return (result);
+	if (size == SIZE_MAX && count > 1)
+		return (NULL);
+	ptr = (void *) malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, count * size);
+	return (ptr);
 }

@@ -20,11 +20,11 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!new)
 		return ;
-	if (!lst) // if there is no pointer list available THEN
+	if (!lst)
 	{
-		*lst = new; // copy address of new to the first entry in list
+		*lst = new;
 		return ;
 	}
-	new->next = *lst; // copy the value of first address to the next element of variable new
-	*lst = new; // copy address of new to the value of first node in list 
+	new->next = *lst;
+	*lst = new;
 }
