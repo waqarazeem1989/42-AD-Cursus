@@ -21,6 +21,8 @@ static int	num_len(int num)
 
 	if (num < 0)
 		i = 1;
+	else if (num == 0)
+		return (1);
 	else
 		i = 0;
 	while (num)
@@ -33,23 +35,19 @@ static int	num_len(int num)
 
 char	*ft_itoa(int num)
 {
-	int			i;
 	char		*s;
 	int			len;
 	long int	numb;
 
 	numb = num;
 	len = num_len (num);
-	if (len == 0 && num == 0)
-	{
-		s = (char *)malloc(sizeof(char) * (1));
-	}
+	if (len == 1 && num == 0)
+		return (ft_strdup ("0"));
 	else
 		s = (char *)malloc(sizeof(char) * (len + 1));
 	if (!s)
 		return (0);
-	i = len;
-	s[i--] = '\0';
+	s[len--] = '\0';
 	if (numb < 0)
 	{
 		s[0] = '-';
@@ -57,8 +55,17 @@ char	*ft_itoa(int num)
 	}
 	while (numb)
 	{
-		s[i--] = numb % 10 + '0';
+		s[len--] = numb % 10 + '0';
 		numb /= 10;
 	}
 	return (s);
 }
+
+// int main()
+// {
+// 	char *a;
+// 	a = ft_itoa(0);
+// 	printf( "string %s \n", a);
+
+// return (0);
+// }
